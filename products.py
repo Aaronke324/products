@@ -12,4 +12,9 @@ while True:
 	products.append([name, price])
 print(products)
 
-print(products[0][0], products[0][1])  #大清單中的第0個索引，小清單中的第0個索引
+(products[0][0], products[0][1])  #大清單中的第0個索引，小清單中的第0個索引，此語法為非清單模式(資料)
+
+for product in products:
+	print(product) #此語法為清單模式
+	print(product[0], '的價格是',product[1]) #此語法為非清單模式(資料)
+
