@@ -18,3 +18,11 @@ for product in products:
 	print(product) #此語法為清單模式
 	print(product[0], '的價格是',product[1]) #此語法為非清單模式(資料)
 
+#字串可以作'相加'或'相乘'' Ex. 'abc'+'abc'='abcabc'
+
+with open ('products.csv', 'w') as f:   #'w'為寫入模式
+	for product in products:
+		f.write(product[0] + ',' + product[1] + '\n') #分格&換行
+		
+
+
