@@ -5,6 +5,7 @@ while True:
 	if name == 'q':
 		break
 	price = input('請輸入商品價格:')
+	price = int(price)
 	#lists = []
 	#lists.append(name)
 	#lists.append(price)
@@ -20,9 +21,15 @@ for product in products:
 
 #字串可以作'相加'或'相乘'' Ex. 'abc'+'abc'='abcabc'
 
-with open ('products.csv', 'w') as f:   #'w'為寫入模式
+with open ('products.csv', 'w', encoding='utf-8') as f:   #'w'為寫入模式, encoding(編碼)設定為'utf-8'
+	f.write('商品,價格\n')
 	for product in products:
-		f.write(product[0] + ',' + product[1] + '\n') #分格&換行
-		
+		f.write(product[0] + ',' + str(product[1]) + '\n') #分格&換行
+
+data = [1, 3, 5, 7, 9] # 清單中裝著一些整數，請開始寫"寫入檔案"的程式碼
+with open ('test.txt', 'w') as f:   #'w'為寫入模式
+	for n in data:
+		f.write(str(n) + '\n') #\n換行
+
 
 
