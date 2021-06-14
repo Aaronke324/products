@@ -1,21 +1,18 @@
+import os #operating system，由標準函式庫os有權限檢查某區是否有該檔案
+
+#讀取檔案(若無該檔案，則程式碼會有問題)
 products = []   #二維清單包含商品及價格資料(two dimensional)
-
-#讀取檔案
-# with open('products.csv', 'r', encoding='utf-8') as f:
-#	for line in f:
-#		s = line.strip().split(',')
-#		name = s[0]
-#		price = s[1]
-#		print(s)
-
-#讀取檔案 
-with open ('products.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue #若該行符合前述條件，則跳過該行但繼續執行其他行
-		name, price = line.strip().split(',')
-		products.append([name, price])
-print(products)
+if os.path.isfile('products.csv'): #檢查路徑中是否有該檔案
+	print("yes，找到檔案了")
+	with open ('products.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue #若該行符合前述條件，則跳過該行但繼續執行其他行
+			name, price = line.strip().split(',')
+			products.append([name, price])
+	print(products)
+else:
+	print("找不到檔案...")
 
 #請使用者輸入
 while True:
@@ -31,8 +28,8 @@ while True:
 	products.append([name, price]) #將小清單list加入大清單products
 print(products)
 
-print(products[0][0], products[0][1])  #第一個[M]是大清單中的第M個索引，第二個[N]是小清單中的第N個索引，此語法為非清單模式(資料)
-print(products[1][0], products[1][1])  #第一個[M]是大清單中的第M個索引，第二個[N]是小清單中的第N個索引，此語法為非清單模式(資料)
+# print(products[0][0], products[0][1])  #第一個[M]是大清單中的第M個索引，第二個[N]是小清單中的第N個索引，此語法為非清單模式(資料)
+# print(products[1][0], products[1][1])  #第一個[M]是大清單中的第M個索引，第二個[N]是小清單中的第N個索引，此語法為非清單模式(資料)
 
 #印出所有購買紀錄
 for product in products: #小清單模式
@@ -46,7 +43,7 @@ with open ('products.csv', 'w', encoding='utf-8') as f:   #'w'為寫入模式, e
 	for product in products:
 		f.write(product[0] + ',' + str(product[1]) + '\n') #分格&換行，csv檔用","分格
 
-#練習題
+#課程練習題
 data = [1, 3, 5, 7, 9] # 清單中裝著一些整數，請開始寫"寫入檔案"的程式碼
 with open ('test.txt', 'w') as f:   #'w'為寫入模式
 	for n in data:
