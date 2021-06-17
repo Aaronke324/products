@@ -56,9 +56,13 @@ def main(): #main function為主要執行程式碼
 	print_products(products)
 	write_file(filename, products)
 
-main()
+#若最一開始沒有CSV檔，使用下列#程式與函式先見建立資料檔
+#products = []  
+#user_input(products) 
+#write_file('products.csv', products) 
 
-# refactor 重構成函式結構
+#集結所有函式流程的函式(refactor 重構成函式結構)
+main()
 
 #課程練習題
 data = [1, 3, 5, 7, 9] # 清單中裝著一些整數，請開始寫"寫入檔案"的程式碼
